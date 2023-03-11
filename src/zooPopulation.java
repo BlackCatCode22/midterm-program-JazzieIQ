@@ -6,14 +6,14 @@ import java.io.IOException;
 public class zooPopulation {
     public static void main(String[] args) throws IOException {
         String path = "animalNames.txt";
-        String line = "";
+        String line;
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
 
             while ((line = br.readLine()) != null)
             {
             String[] values = line.split (",");
-            System.out.println(values[12]);
+            System.out.println(values [2][10]);
             }
         }
         catch (FileNotFoundException e)
