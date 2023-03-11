@@ -12,8 +12,9 @@ public class zooPopulation {
 
             while ((line = br.readLine()) != null)
             {
-            String[] values = line.split (",");
-            System.out.println(values [2][10]);
+            String[][] values;
+                values = new String[][]{line.split(",")};
+                System.out.println(values[2][10]);
             }
         }
         catch (FileNotFoundException e)
