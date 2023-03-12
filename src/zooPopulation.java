@@ -15,6 +15,9 @@ public class zooPopulation {
                 String[][] values;
                 values = new String[][]{line.split(":"+",")};
                 System.out.println(values[0][0]);
+            String[][] values;
+                values = new String[][]{line.split(":"+",")};
+                System.out.println(values[0][0]);
             }
         }
         catch (FileNotFoundException e)
