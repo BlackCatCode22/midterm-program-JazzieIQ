@@ -21,23 +21,3 @@ public class zooPopulationIoTest {
         }
     }
 }
-    /*static String genUniqueID (String speciesName, int numOfSpecies){
-        String uniqueID;
-        Switch (speciesName); {
-            case "hyena"
-                uniqueID = "Hy0" + numOfSpecies;
-            break;
-            case "lion"
-                uniqueID = "Li0" + numOfSpecies;
-            break;
-            case "tiger"
-                uniqueID = "Ti0" + numOfSpecies;
-            break;
-            case "bear"
-                uniqueID = "Be0" + numOfSpecies;
-            break;
-        }
-        return uniqueID;
-    }
-}
-*/
