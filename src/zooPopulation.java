@@ -1,24 +1,21 @@
 import java.io.*;
 import java.util.Scanner;
-
 import static java.lang.Integer.*;
 import static java.lang.System.*;
-
 public class zooPopulation {
-
-    static String calcBirth(int yearsOld, String birthSeason) {
+    public static String calcBirth(int yearsOld, String birthSeason) {
         int year = 2023 - yearsOld;
-        String monthDay = switch (birthSeason) {
+        java.lang.String monthDay = switch (birthSeason) {
             case "spring," -> "03-19";
             case "summer," -> "5-21";
             case "fall," -> "08-19";
             case "winter," -> "12-19";
             default -> "01-01";
         };
-        String newDate = year + "-" + monthDay;
-        return newDate;
+        int  newDate = Integer.parseInt(year + "-" + monthDay);
+        System.out.println(newDate);
+        return monthDay;
     }
-
     static String genUniqueID(String speciesName, int numOfSpecies) {
         return switch (speciesName) {
             case "hyena" -> "Hy0" + numOfSpecies;
@@ -28,8 +25,6 @@ public class zooPopulation {
             default -> "error";
         };
     }
-
-
     public static void main(String[] args) throws IOException {
         out.println("""
 
@@ -97,10 +92,10 @@ public class zooPopulation {
         String uniqueID = "xyz";
         String arrived;
         String[] splitAnimals = animals[4].split(" ", 0);
-        for (String s: splitAnimals) {
-            //System.out.println(s);
-        }
-        int birthdate = parseInt(calcBirth(Integer.parseInt((splitAnimals[0])), splitAnimals[7]));
+        /*for (String s: splitAnimals) {
+            System.out.println(s);
+        }*/
+        int birthdate = parseInt(calcBirth());
         System.out.println("birthDate is: " + birthdate);
         sex = splitAnimals[3];
         System.out.println("sex is: " + sex);
