@@ -1,21 +1,21 @@
 import java.io.*;
 import java.util.Scanner;
-import static java.lang.Integer.*;
 import static java.lang.System.*;
 public class zooPopulation {
-    public static String calcBirth(int yearsOld, String birthSeason) {
-        int year = 2023 - yearsOld;
+    static String calcBirth(int yearOld, String birthSeason) {
+        int year = 2023 - yearOld;
+        //java.lang.String birthSeason = "01-01";
         java.lang.String monthDay = switch (birthSeason) {
             case "spring," -> "03-19";
             case "summer," -> "5-21";
             case "fall," -> "08-19";
             case "winter," -> "12-19";
-            default -> "01-01";
+            default -> birthSeason;
         };
-        int  newDate = Integer.parseInt(year + "-" + monthDay);
-        System.out.println(newDate);
-        return monthDay;
+        String newDate = (year + "-" + monthDay);
+        return newDate;
     }
+
     static String genUniqueID(String speciesName, int numOfSpecies) {
         return switch (speciesName) {
             case "hyena" -> "Hy0" + numOfSpecies;
@@ -30,7 +30,7 @@ public class zooPopulation {
 
                 Welcome to Mac Mac's Zoo program!
 
-                I will be using the following info:
+                I will be using the info above:
 
                 """);
         String animalsNames = "animalNames.txt";
@@ -49,19 +49,8 @@ public class zooPopulation {
             throw new RuntimeException(e);
         }
         out.println("\n");
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(arrivingAnimals));
-            while ((arriving = br.readLine()) != null) {
-                String[][] values;
-                values = new String[][]{arriving.split(":" + ",")};
-                out.println(values[0][0]);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-        String[] animals = new String[16];
         int lineNum = 0;
+        String[] animals = new String[16];
         try {
             File myAnimals = new File("arrivingAnimals.txt");
             Scanner scanner = new Scanner(myAnimals);
@@ -77,6 +66,7 @@ public class zooPopulation {
             e.printStackTrace();
         }
         out.println("\nLet's begin!\n");
+
         int numOfHyenas = 0;
         int numOfLions = 0;
         int numOfTigers = 0;
@@ -91,11 +81,12 @@ public class zooPopulation {
         String name;
         String uniqueID = "xyz";
         String arrived;
-        String[] splitAnimals = animals[4].split(" ", 0);
+        for (int i = 0; i<16; i++) {
+        String[] splitAnimals = animals[i].split("", 0);
         /*for (String s: splitAnimals) {
             System.out.println(s);
         }*/
-        int birthdate = parseInt(calcBirth());
+        String birthdate = calcBirth(4,"spring");
         System.out.println("birthDate is: " + birthdate);
         sex = splitAnimals[3];
         System.out.println("sex is: " + sex);
@@ -119,6 +110,8 @@ public class zooPopulation {
             uniqueID = genUniqueID(species, numOfBears);
         } else {
             out.println("Error tabulating number of species");
+        }
+        out.println("\n");
         }
         System.out.println("numOfHyenas = " + numOfHyenas);
         System.out.println("numOfLions = " + numOfLions);
