@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
+import static java.lang.Integer.*;
 import static java.lang.System.*;
 public class zooPopulation {
     static String calcBirth(int yearOld, String birthSeason) {
@@ -25,6 +26,7 @@ public class zooPopulation {
             default -> "error";
         };
     }
+
     public static void main(String[] args) throws IOException {
         out.println("""
 
@@ -82,11 +84,12 @@ public class zooPopulation {
         String uniqueID = "xyz";
         String arrived;
         for (int i = 0; i<16; i++) {
-        String[] splitAnimals = animals[i].split("", 0);
+        String[] splitAnimals = animals[i].split(" ", 0);
+            String[] splitStrComma = animals[i].split(",",0);
         /*for (String s: splitAnimals) {
             System.out.println(s);
         }*/
-        String birthdate = calcBirth(4,"spring");
+        String birthdate = calcBirth(i,newDate);
         System.out.println("birthDate is: " + birthdate);
         sex = splitAnimals[3];
         System.out.println("sex is: " + sex);
@@ -96,6 +99,12 @@ public class zooPopulation {
         System.out.println("position of comma is: " + position);
         species = species.substring(0, position);
         System.out.println("species is now: " + species);
+            color = splitStrComma[2];
+            System.out.println("color = " + color);
+            weight = splitStrComma[3];
+            origin = splitStrComma[4] + "," + splitStrComma[5];
+            System.out.println("weight = " + weight);
+            System.out.println("origin = " + origin);
         if (species.equals("hyena")) {
             numOfHyenas++;
             uniqueID = genUniqueID(species, numOfHyenas);
