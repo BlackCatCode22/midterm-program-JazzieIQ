@@ -89,7 +89,7 @@ public class zooPopulation {
         /*for (String s: splitAnimals) {
             System.out.println(s);
         }*/
-        String birthdate = calcBirth(i,newDate);
+        String birthdate = calcBirth(Integer.parseInt(splitAnimals[0]), splitAnimals[7]);;
         System.out.println("birthDate is: " + birthdate);
         sex = splitAnimals[3];
         System.out.println("sex is: " + sex);
