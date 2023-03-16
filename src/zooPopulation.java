@@ -64,24 +64,23 @@ public class zooPopulation {
         }
         out.println("\n");
 
-       int idLine = 0;
-       String [] id = new String [7];
-       try {
-            File animalId = new File (animalsNames);
+        int idLine = 0;
+        String[] id = new String[7];
+        try {
+            File animalId = new File(animalsNames);
             Scanner scanner = new Scanner(animalId);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 id[idLine] = line;
-                idLine ++;
+                idLine++;
                 //out.println(line);
             }
             scanner.close();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             out.println("\n A file error occured...");
             e.printStackTrace();
         }
-       int lineNum = 0;
+        int lineNum = 0;
         String[] animals = new String[16];
         try {
             File myAnimals = new File(arrivingAnimals);
@@ -93,8 +92,7 @@ public class zooPopulation {
                 //out.println(line);
             }
             scanner.close();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             out.println("\n A file error occured...");
             e.printStackTrace();
         }
@@ -114,9 +112,9 @@ public class zooPopulation {
         String name;
         String uniqueID = "xyz";
         String arrived;
-        for (int i = 0; i<16; i++) {
+        for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
-            String[] splitStrComma = animals[i].split(",",0);
+            String[] splitStrComma = animals[i].split(",", 0);
         /*for (String s: splitAnimals) {
             System.out.println(s);
         }*/
@@ -126,7 +124,8 @@ public class zooPopulation {
             species = species.substring(0, position);
             System.out.println("species is: " + species);
             //System.out.println("position of comma is: " + position);
-            String birthdate = calcBirth(Integer.parseInt(splitAnimals[0]), splitAnimals[7]);;
+            String birthdate = calcBirth(Integer.parseInt(splitAnimals[0]), splitAnimals[7]);
+            ;
             System.out.println("birthDate is: " + birthdate);
             System.out.println("age is: " + yearsOld);
             sex = splitAnimals[3];
@@ -159,12 +158,20 @@ public class zooPopulation {
             out.println("\n");
             //return;
         }
-        //for (int i = 0; i<4; i++) {
-        // string [] splitNames =
-        // }
-        System.out.println("numOfHyenas = " + numOfHyenas);
-        System.out.println("numOfLions = " + numOfLions);
-        System.out.println("numOfTigers = " + numOfTigers);
-        System.out.println("numOfBears = " + numOfBears);
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j<4; j++) {
+                String[] splitNames = id[j].split(" " + ":", 0);
+                //String[] newName = id[i].split(",", 2);
+                //String[] nameListed = id[2].split();
+                for (String s : splitNames) System.out.println(s);
+                //for (String s : newName) System.out.println(s);
+                //for (String s : nameListed) System.out.println(s);
+            }
+        }
+            out.println("\n");
+            System.out.println("numOfHyenas = " + numOfHyenas);
+            System.out.println("numOfLions = " + numOfLions);
+            System.out.println("numOfTigers = " + numOfTigers);
+            System.out.println("numOfBears = " + numOfBears);
+        }
     }
-}
