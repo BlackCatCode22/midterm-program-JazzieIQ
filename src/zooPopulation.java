@@ -51,6 +51,35 @@ public class zooPopulation {
             throw new RuntimeException(e);
         }
         out.println("\n");
+        /*
+          int idLine = 0;
+        int listName = 0;
+        String[][] id = new String[][]{new String[7]};
+        try {
+            File animalId = new File(animalsNames);
+            Scanner scanner = new Scanner(animalId);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                id[idLine][listName] = Arrays.toString(new String[]{line});
+                idLine++;
+                listName++;
+                //out.println(line);
+            }
+                    int idLine = 0;
+        int listName = 0;
+        String[][] id = new String[][]{new String[7]};
+        try {
+            File animalId = new File(animalsNames);
+            Scanner scanner = new Scanner(animalId);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                id[idLine][listName] = new String[][]{line};
+                idLine++;
+                listName++;
+                //out.println(line);
+            }
+            scanner.close();
+        */
         try {
             BufferedReader br = new BufferedReader(new FileReader(arrivingAnimals));
             while ((arriving = br.readLine()) != null) {
@@ -159,11 +188,13 @@ public class zooPopulation {
             //return;
         }
         for (int i = 0; i < 7; i++) {
+            String[] splitNames = id[i].split("," + ":", 0);
+            for (String s : splitNames) System.out.println(s);
             for (int j = 0; j<4; j++) {
-                String[] splitNames = id[j].split(" " + ":", 0);
+
                 //String[] newName = id[i].split(",", 2);
                 //String[] nameListed = id[2].split();
-                for (String s : splitNames) System.out.println(s);
+
                 //for (String s : newName) System.out.println(s);
                 //for (String s : nameListed) System.out.println(s);
             }
