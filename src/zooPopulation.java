@@ -84,43 +84,43 @@ public class zooPopulation {
         String uniqueID = "xyz";
         String arrived;
         for (int i = 0; i<16; i++) {
-        String[] splitAnimals = animals[i].split(" ", 0);
+            String[] splitAnimals = animals[i].split(" ", 0);
             String[] splitStrComma = animals[i].split(",",0);
         /*for (String s: splitAnimals) {
             System.out.println(s);
         }*/
-        String birthdate = calcBirth(Integer.parseInt(splitAnimals[0]), splitAnimals[7]);;
-        System.out.println("birthDate is: " + birthdate);
-        sex = splitAnimals[3];
-        System.out.println("sex is: " + sex);
-        species = splitAnimals[4];
-        System.out.println("species is: " + species);
-        int position = species.indexOf(",");
-        System.out.println("position of comma is: " + position);
-        species = species.substring(0, position);
-        System.out.println("species is now: " + species);
+            String birthdate = calcBirth(Integer.parseInt(splitAnimals[0]), splitAnimals[7]);;
+            System.out.println("birthDate is: " + birthdate);
+            sex = splitAnimals[3];
+            System.out.println("sex is: " + sex);
+            species = splitAnimals[4];
+            System.out.println("species is: " + species);
+            int position = species.indexOf(",");
+            System.out.println("position of comma is: " + position);
+            species = species.substring(0, position);
+            System.out.println("species is now: " + species);
             color = splitStrComma[2];
             System.out.println("color = " + color);
             weight = splitStrComma[3];
             origin = splitStrComma[4] + "," + splitStrComma[5];
             System.out.println("weight = " + weight);
             System.out.println("origin = " + origin);
-        if (species.equals("hyena")) {
-            numOfHyenas++;
-            uniqueID = genUniqueID(species, numOfHyenas);
-        } else if (species.equals("lion")) {
-            numOfLions++;
-            uniqueID = genUniqueID(species, numOfLions);
-        } else if (species.equals("tiger")) {
-            numOfTigers++;
-            uniqueID = genUniqueID(species, numOfTigers);
-        } else if (species.equals("bear")) {
-            numOfBears++;
-            uniqueID = genUniqueID(species, numOfBears);
-        } else {
-            out.println("Error tabulating number of species");
-        }
-        out.println("\n");
+            if (species.equals("hyena")) {
+                numOfHyenas++;
+                uniqueID = genUniqueID(species, numOfHyenas);
+            } else if (species.equals("lion")) {
+                numOfLions++;
+                uniqueID = genUniqueID(species, numOfLions);
+            } else if (species.equals("tiger")) {
+                numOfTigers++;
+                uniqueID = genUniqueID(species, numOfTigers);
+            } else if (species.equals("bear")) {
+                numOfBears++;
+                uniqueID = genUniqueID(species, numOfBears);
+            } else {
+                out.println("Error tabulating number of species");
+            }
+            out.println("\n");
         }
         System.out.println("numOfHyenas = " + numOfHyenas);
         System.out.println("numOfLions = " + numOfLions);
