@@ -194,19 +194,14 @@ public class zooPopulation {
         }
         for (int i = 0; i < 7; i++) {
             String[] hab = new String[]{id[i].replace("Names", "Habitat")};
-            String[] newChar = new String[]{hab[0].replace(",", "")};
-//            String nullHabTxt = newChar[0].substring(0, 2);
-            String[] splitTxt = newChar[0].split(" ",14);
+            String[] noBlankLns = new String[] {hab[0].replace(" /n", " ")};
+            String[] splitTxt = new String[]{Arrays.toString(noBlankLns[0].split(" ",0))};
+            String[] nullHabTxt = new String[]{splitTxt[0].substring(2)};
+            String[] newChar = new String[]{nullHabTxt[0].replace(",", " ")};
             for (String h: hab) out.println(h);
-            for (String n: newChar) out.println(n);
+            for (String nH : nullHabTxt) out.println(nH);
             for (String s : splitTxt) out.println(s);
-//            out.println(nullHabTxt);
-//          for (int j = 0; j<4; j++) {
-//          for (int m = 0; m<2; m++){
-//          String[] nameListed = splitTxt[i].split(",", 0);
-//          for (String l : nameListed) System.out.println(l);
-//                }
-//            }
+            for (String n: newChar) out.println(n);
         }
             out.println("\n");
             out.println("numOfHyenas = " + numOfHyenas);
