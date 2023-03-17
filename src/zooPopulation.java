@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -144,43 +145,47 @@ public class zooPopulation {
         for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
             String[] splitStrComma = animals[i].split(",", 0);
-        /*for (String s: splitAnimals) {
+/*            for (String a: splitAnimals) {
+                System.out.println(a);
+            }
+            out.println("\n\n");
+            for (String s: splitStrComma) {
             System.out.println(s);
-        }*/
+            }
+*/
             String yearsOld = splitAnimals[0];
             species = splitAnimals[4];
             int position = species.indexOf(",");
             species = species.substring(0, position);
-            System.out.println("species is: " + species);
+            out.println("species is: " + species);
             //System.out.println("position of comma is: " + position);
             String birthdate = calcBirth(Integer.parseInt(splitAnimals[0]), splitAnimals[7]);
-            ;
-            System.out.println("birthDate is: " + birthdate);
-            System.out.println("age is: " + yearsOld);
+            out.println("birthDate is: " + birthdate);
+            out.println("age is: " + yearsOld);
             sex = splitAnimals[3];
-            System.out.println("sex is: " + sex);
+            out.println("sex is: " + sex);
             color = splitStrComma[2];
-            System.out.println("color ; " + color);
+            out.println("color ; " + color);
             weight = splitStrComma[3];
             origin = splitStrComma[4] + "," + splitStrComma[5];
-            System.out.println("weight ; " + weight);
-            System.out.println("origin ; " + origin);
+            out.println("weight ; " + weight);
+            out.println("origin ; " + origin);
             if (species.equals("hyena")) {
                 numOfHyenas++;
                 uniqueID = genUniqueID(species, numOfHyenas);
-                System.out.println("uniqueID = " + uniqueID);
+                out.println("uniqueID = " + uniqueID);
             } else if (species.equals("lion")) {
                 numOfLions++;
                 uniqueID = genUniqueID(species, numOfLions);
-                System.out.println("uniqueID = " + uniqueID);
+                out.println("uniqueID = " + uniqueID);
             } else if (species.equals("tiger")) {
                 numOfTigers++;
                 uniqueID = genUniqueID(species, numOfTigers);
-                System.out.println("uniqueID = " + uniqueID);
+                out.println("uniqueID = " + uniqueID);
             } else if (species.equals("bear")) {
                 numOfBears++;
                 uniqueID = genUniqueID(species, numOfBears);
-                System.out.println("uniqueID = " + uniqueID);
+                out.println("uniqueID = " + uniqueID);
             } else {
                 out.println("Error tabulating number of species");
             }
@@ -188,21 +193,25 @@ public class zooPopulation {
             //return;
         }
         for (int i = 0; i < 7; i++) {
-            String[] splitNames = id[i].split("," + ":", 0);
-            for (String s : splitNames) System.out.println(s);
-            for (int j = 0; j<4; j++) {
-
-                //String[] newName = id[i].split(",", 2);
-                //String[] nameListed = id[2].split();
-
-                //for (String s : newName) System.out.println(s);
-                //for (String s : nameListed) System.out.println(s);
-            }
+            String[] hab = new String[]{id[i].replace("Names", "Habitat")};
+            String[] newChar = new String[]{hab[0].replace(",", "")};
+//            String nullHabTxt = newChar[0].substring(0, 2);
+            String[] splitTxt = newChar[0].split(" ",14);
+            for (String h: hab) out.println(h);
+            for (String n: newChar) out.println(n);
+            for (String s : splitTxt) out.println(s);
+//            out.println(nullHabTxt);
+//          for (int j = 0; j<4; j++) {
+//          for (int m = 0; m<2; m++){
+//          String[] nameListed = splitTxt[i].split(",", 0);
+//          for (String l : nameListed) System.out.println(l);
+//                }
+//            }
         }
             out.println("\n");
-            System.out.println("numOfHyenas = " + numOfHyenas);
-            System.out.println("numOfLions = " + numOfLions);
-            System.out.println("numOfTigers = " + numOfTigers);
-            System.out.println("numOfBears = " + numOfBears);
+            out.println("numOfHyenas = " + numOfHyenas);
+            out.println("numOfLions = " + numOfLions);
+            out.println("numOfTigers = " + numOfTigers);
+            out.println("numOfBears = " + numOfBears);
         }
     }
