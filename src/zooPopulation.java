@@ -52,35 +52,6 @@ public class zooPopulation {
             throw new RuntimeException(e);
         }
         out.println("\n");
-        /*
-          int idLine = 0;
-        int listName = 0;
-        String[][] id = new String[][]{new String[7]};
-        try {
-            File animalId = new File(animalsNames);
-            Scanner scanner = new Scanner(animalId);
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                id[idLine][listName] = Arrays.toString(new String[]{line});
-                idLine++;
-                listName++;
-                //out.println(line);
-            }
-                    int idLine = 0;
-        int listName = 0;
-        String[][] id = new String[][]{new String[7]};
-        try {
-            File animalId = new File(animalsNames);
-            Scanner scanner = new Scanner(animalId);
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                id[idLine][listName] = new String[][]{line};
-                idLine++;
-                listName++;
-                //out.println(line);
-            }
-            scanner.close();
-        */
         try {
             BufferedReader br = new BufferedReader(new FileReader(arrivingAnimals));
             while ((arriving = br.readLine()) != null) {
@@ -146,17 +117,23 @@ public class zooPopulation {
         out.println( "FYI the following String took 1 week out of my life...#justsayin'" + "\n");
         for (int j = 0; j < 4; j++) {
             String[] hab = new String[]{id[j].replace("Names", "Habitat")};
-            String[] splitTxt = new String[]{Arrays.toString(hab[0].split(" ",4))};
+            String[] splitTxt = new String[]{Arrays.toString(hab[0].split(" ",14))};
             String newChar = new String(splitTxt[0].replace(",", ""));
             String noBlankLns = newChar.replace("[", "").replace("]", "");
-            out.println(noBlankLns);
+            String arrayHabNames = Arrays.toString(noBlankLns.split(" ", 14));
+            int namePos = arrayHabNames.indexOf(" ");
+            //String fourNames = Arrays.toString(arrayHabNames[j].substring(0,4);
+            //out.println(noBlankLns);
+            out.println(arrayHabNames);
+            //out.println(fourNames);
             // return noBlankLns;
         }
         out.println("\n");
         for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
             String[] splitStrComma = animals[i].split(",", 0);
-      /*for (String a: splitAnimals) {
+      /*
+        for (String a: splitAnimals) {
             System.out.println(a);
             out.println("\n\n");
             for (String s: splitStrComma) {
@@ -165,6 +142,7 @@ public class zooPopulation {
         }*/
             String yearsOld = splitAnimals[0];
             species = splitAnimals[4];
+            //out.print (species);
             int position = species.indexOf(",");
             species = species.substring(0, position);
             out.println("species is: " + species);
@@ -206,27 +184,58 @@ public class zooPopulation {
             out.println("\n");
             //return;
         }
-        //String[] habArray = new String []{StringToarray.noBlanknLs};
+        out.println("numOfHyenas = " + numOfHyenas);
+        out.println("numOfLions = " + numOfLions);
+        out.println("numOfTigers = " + numOfTigers);
+        out.println("numOfBears = " + numOfBears);
+    }
+}
+        /*
+        *the following is literally just crap that wasted my time. Take a gander*
 
-       /*   String splitTxt0 = Arrays.toString(hab[0].split("\n\n", 0));
+        int idLine = 0;
+        int listName = 0;
+        String[][] id = new String[][]{new String[7]};
+        try {
+            File animalId = new File(animalsNames);
+            Scanner scanner = new Scanner(animalId);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                id[idLine][listName] = Arrays.toString(new String[]{line});
+                idLine++;
+                listName++;
+                //out.println(line);
+            }
+                    int idLine = 0;
+        int listName = 0;
+        String[][] id = new String[][]{new String[7]};
+        try {
+            File animalId = new File(animalsNames);
+            Scanner scanner = new Scanner(animalId);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                id[idLine][listName] = new String[][]{line};
+                idLine++;
+                listName++;
+                //out.println(line);
+            }
+            scanner.close();
+
+            String[] habArray = new String []{StringToarray.noBlanknLs};
+            String splitTxt0 = Arrays.toString(hab[0].split("\n\n", 0));
             String noBlankLns = splitTxt0 + 0splitTxt2 + splitTxt4 + splitTxt6;
             String noBlankLns = splitTxt.replaceAll("\n\n" + "\r\n" + "\n" + "\r", "hello");
             out.println(lineBreak);
-
-            //
-            //String[] nullHabTxt = new String[]{noBlankLns[0].substring(2)};
-            //out.println(splitTxt);
-            //out.println(noBlank);
-            //for (String s: splitTxt) out.println(s);
-            //for (String h: hab) out.println(h);
-
-            //for (String n: newChar) out.println(n);
-            //for (String nB : noBlankLns) out.println(nB);
-            //for (String nH : nullHabTxt) out.println(nH);
-            */
-
-        /*
-            for (int i = 0; i < 7; i++) {
+            String[] nullHabTxt = new String[]{noBlankLns[0].substring(2)};
+            out.println(splitTxt);
+            out.println(noBlank);
+            for (String s: splitTxt) out.println(s);
+            for (String h: hab) out.println(h);
+            for (String n: newChar) out.println(n);
+            for (String nB : noBlankLns) out.println(nB);
+            for (String nH : nullHabTxt) out.println(nH);
+            //*this is another iteration of crap*
+        for (int i = 0; i < 7; i++) {
             String[] hab = new String[]{id[i].replace("Names", "Habitat")};
             String[] noBlankLns = new String[] {hab[0].replace(" /n", " ")};
             String[] splitTxt = new String[]{Arrays.toString(noBlankLns[0].split(" ",0))};
@@ -243,9 +252,3 @@ public class zooPopulation {
             //for (String nH : nullHabTxt) out.println(nH);
         }
          */
-            out.println("numOfHyenas = " + numOfHyenas);
-            out.println("numOfLions = " + numOfLions);
-            out.println("numOfTigers = " + numOfTigers);
-            out.println("numOfBears = " + numOfBears);
-        }
-    }
