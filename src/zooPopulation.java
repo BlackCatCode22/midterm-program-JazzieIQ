@@ -106,7 +106,8 @@ public class zooPopulation {
                 //out.println(line);
             }
             scanner.close();
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e) {
             out.println("\n A file error occured...");
             e.printStackTrace();
         }
@@ -198,54 +199,47 @@ public class zooPopulation {
             out.println("\n");
             //return;
         }
-        for (int j = 0; j < 7; j++) {
-            String splitTxt = Arrays.toString(id[j].split(" ", j));
-            String noBlankLns = splitTxt.replace("(?m)^[ \t]*\r?\n", "");
-            //String noBlankLns = splitTxt.substring(0, splitTxt.length() - 1);
-            //String blank = "blank";
-            //int newId = splitTxt.indexOf("\n\n");
-/*
-            String noBlank = null;
-            switch (splitTxt) {
-                case "\n\n", "\r", "\n", "\r\n" -> {
-                    String blank;
-                    out.println(blank);
-                }
-            }
+        for (int j = 0; j < 4; j++) {
+            String[] hab = new String[]{id[j].replace("Names", "Habitat")};
+            String[] splitTxt = new String[]{Arrays.toString(hab[0].split(" ",14))};
+            String newChar = new String(splitTxt[0].replace(",", ""));
+            //switch (newChar){
+            //    case "" -> {}};
+
+            String noBlankLns = newChar.replace("[", "").replace("]", "");
+            /*
+
+            String splitTxt0 = Arrays.toString(hab[0].split("\n\n", 0));
+            String noBlankLns = splitTxt0 + 0splitTxt2 + splitTxt4 + splitTxt6;
+            String noBlankLns = splitTxt.replaceAll("\n\n" + "\r\n" + "\n" + "\r", "hello");
+            out.println(lineBreak);
 */
-
-
-
-            //String hab = splitTxt[0].replace("Names", "Habitat");
-            //String splitTxt = new String(id[j].split(" ",14));
-            //String newChar = new String(hab[j].replace(",", ""));
-
+            //
             //String[] nullHabTxt = new String[]{noBlankLns[0].substring(2)};
             //out.println(splitTxt);
-            out.println(noBlankLns);
             //out.println(noBlank);
             //for (String s: splitTxt) out.println(s);
-            //for (String h: hab) out.println(hab);
+            //for (String h: hab) out.println(h);
+            out.println(noBlankLns);
             //for (String n: newChar) out.println(n);
             //for (String nB : noBlankLns) out.println(nB);
-
             //for (String nH : nullHabTxt) out.println(nH);
         }
         /*
-                for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 7; i++) {
             String[] hab = new String[]{id[i].replace("Names", "Habitat")};
             String[] noBlankLns = new String[] {hab[0].replace(" /n", " ")};
             String[] splitTxt = new String[]{Arrays.toString(noBlankLns[0].split(" ",0))};
-            String[] nullHabTxt = new String[]{splitTxt[0].substring(2)};
             String[] newChar = new String[]{nullHabTxt[0].replace(",", " ")};
-            for (String h: hab) out.println(h);
-            for (String nH : nullHabTxt) out.println(nH);
-            for (String s : splitTxt) out.println(s);
-            for (String n: newChar) out.println(n);
+            String[] nullHabTxt = new String[]{newChar[0].substring(2)};
+            out.println(hab);
+            out.println(splitTxt);
+            out.println(nullHabTxt);
+            out.println(n);
             //for (String h: hab) out.println(h);
-            //for (String n: newChar) out.println(n);
-            //for (String s: splitTxt) out.println(s);
             //for (String nB : noBlankLns) out.println(nB);
+            //for (String s: splitTxt) out.println(s);
+            //for (String n: newChar) out.println(n);
             //for (String nH : nullHabTxt) out.println(nH);
         }
          */
