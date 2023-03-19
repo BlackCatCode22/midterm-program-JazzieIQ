@@ -143,19 +143,26 @@ public class zooPopulation {
         String name;
         String uniqueID = "xyz";
         String arrived;
+        out.println( "FYI the following String took 1 week out of my life...#justsayin'" + "\n");
+        for (int j = 0; j < 4; j++) {
+            String[] hab = new String[]{id[j].replace("Names", "Habitat")};
+            String[] splitTxt = new String[]{Arrays.toString(hab[0].split(" ",4))};
+            String newChar = new String(splitTxt[0].replace(",", ""));
+            String noBlankLns = newChar.replace("[", "").replace("]", "");
+            out.println(noBlankLns);
+            // return noBlankLns;
+        }
+        out.println("\n");
         for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
             String[] splitStrComma = animals[i].split(",", 0);
-/*
-            for (String a: splitAnimals) {
-                System.out.println(a);
-            /
-           out.println("\n\n");
+      /*for (String a: splitAnimals) {
+            System.out.println(a);
+            out.println("\n\n");
             for (String s: splitStrComma) {
             System.out.println(s);
             }
-        }
-*/
+        }*/
             String yearsOld = splitAnimals[0];
             species = splitAnimals[4];
             int position = species.indexOf(",");
@@ -199,32 +206,25 @@ public class zooPopulation {
             out.println("\n");
             //return;
         }
-        for (int j = 0; j < 4; j++) {
-            String[] hab = new String[]{id[j].replace("Names", "Habitat")};
-            String[] splitTxt = new String[]{Arrays.toString(hab[0].split(" ",14))};
-            String newChar = new String(splitTxt[0].replace(",", ""));
-            //switch (newChar){
-            //    case "" -> {}};
+        //String[] habArray = new String []{StringToarray.noBlanknLs};
 
-            String noBlankLns = newChar.replace("[", "").replace("]", "");
-            /*
-
-            String splitTxt0 = Arrays.toString(hab[0].split("\n\n", 0));
+       /*   String splitTxt0 = Arrays.toString(hab[0].split("\n\n", 0));
             String noBlankLns = splitTxt0 + 0splitTxt2 + splitTxt4 + splitTxt6;
             String noBlankLns = splitTxt.replaceAll("\n\n" + "\r\n" + "\n" + "\r", "hello");
             out.println(lineBreak);
-*/
+
             //
             //String[] nullHabTxt = new String[]{noBlankLns[0].substring(2)};
             //out.println(splitTxt);
             //out.println(noBlank);
             //for (String s: splitTxt) out.println(s);
             //for (String h: hab) out.println(h);
-            out.println(noBlankLns);
+
             //for (String n: newChar) out.println(n);
             //for (String nB : noBlankLns) out.println(nB);
             //for (String nH : nullHabTxt) out.println(nH);
-        }
+            */
+
         /*
             for (int i = 0; i < 7; i++) {
             String[] hab = new String[]{id[i].replace("Names", "Habitat")};
@@ -243,7 +243,6 @@ public class zooPopulation {
             //for (String nH : nullHabTxt) out.println(nH);
         }
          */
-            //out.println("\n");
             out.println("numOfHyenas = " + numOfHyenas);
             out.println("numOfLions = " + numOfLions);
             out.println("numOfTigers = " + numOfTigers);
