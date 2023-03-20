@@ -33,7 +33,7 @@ public class zooPopulation {
 
                 Welcome to Mac Mac's Zoo program!
 
-                I will be using the info above:
+                I will be using the info below:
 
                 """);
         String animalsNames = "animalNames.txt";
@@ -77,8 +77,7 @@ public class zooPopulation {
                 //out.println(line);
             }
             scanner.close();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             out.println("\n A file error occured...");
             e.printStackTrace();
         }
@@ -114,27 +113,60 @@ public class zooPopulation {
         String name;
         String uniqueID = "xyz";
         String arrived;
-        out.println( "FYI the following String took 1 week out of my life...#justsayin'" + "\n");
-        for (int j = 0; j < 4; j++) {
-            String[] hab = new String[]{id[j].replace("Names", "Habitat")};
-            String[] splitTxt = new String[]{Arrays.toString(hab[0].split(" ",14))};
-            String newChar = new String(splitTxt[0].replace(",", ""));
-            String noBlankLns = newChar.replace("[", "").replace("]", "");
-            String arrayHabNames = Arrays.toString(noBlankLns.split(" ", 14));
-            int namePos = arrayHabNames.indexOf(" ");
-            //String fourNames = Arrays.toString(arrayHabNames[j].substring(0,4);
-            //out.println(noBlankLns);
-            out.println(arrayHabNames);
-            //out.println(fourNames);
-            // return noBlankLns;
-        }
-        out.println("\n");
+        out.println("FYI the following String took 1 week out of my life...#justsayin'" + "\n");
+        String noBlankLns = null;
+        String[] hyenaHabitat = null;
+        String[] lionHabitat = null;
+        String[] tigerHabitat = null;
+        String[] bearHabitat = null;
+        int indexKey = 0;
+        int endKey = 0;
+        for (int j = 0; j < 7; j++) {
+            String hab = id[j].replace("Names", "Habitat");
+            String newChar = hab.replace(",", "");
+            String splitTxt = Arrays.toString(newChar.split(" ", j));
+            noBlankLns = new String(splitTxt.replace("[]", ""));
+            out.print(noBlankLns);
+            indexKey = noBlankLns.indexOf("[");
+            endKey = noBlankLns.indexOf("]");
+            /*out.print("\n" + "These are for Habitat arrays by indexing them from my scanner " + "\n" + indexKey + "\n" + endKey);
+            }*/
+            for (int i = 0; i < 7; i++) {
+                if (endKey == -1) {
+                    out.print("\n");
+                } else if (endKey == 94) {
+                    hyenaHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
+                    out.print("\n" + "These are for Hyena Habitat arrays. I have indexed them from my scanner." + "\n"/*
+                    +indexKey + "\n" + endKey*/);
+                }
+                else if (endKey == 85) {
+                    lionHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
+                    out.print("\n" + "These are for Lion Habitat arrays. I have indexed them from my scanner." + "\n"/*
+                    +indexKey + "\n" + endKey*/);
+                    }
+                else if (endKey == 96) {
+                    tigerHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
+                    out.print("\n" + "These are for Bear Habitat arrays. I have indexed them from my scanner." + "\n"/*
+                    +indexKey + "\n" + endKey*/);
+                    return;
+                    }
+                else if (endKey == 82) {
+                    bearHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
+                    out.print("\n" + "These are for Tiger Habitat arrays.arrays. I have indexed them from my scanner." + "\n"/*
+                    +indexKey + "\n" + endKey*/);
+                    return;
+                    }
+                }
+            }
+        //String newId = Arrays.toString(new String[]{noBlankLns});
+        //out.print(newId);
+        System.out.print("\n");
         for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
             String[] splitStrComma = animals[i].split(",", 0);
       /*
         for (String a: splitAnimals) {
-            System.out.println(a);
+
             out.println("\n\n");
             for (String s: splitStrComma) {
             System.out.println(s);
@@ -182,7 +214,6 @@ public class zooPopulation {
                 default -> out.println("Error tabulating number of species");
             }
             out.println("\n");
-            //return;
         }
         out.println("numOfHyenas = " + numOfHyenas);
         out.println("numOfLions = " + numOfLions);
@@ -252,3 +283,22 @@ public class zooPopulation {
             //for (String nH : nullHabTxt) out.println(nH);
         }
          */
+/*
+                    *More Junk*
+
+for (int i = 0; i < 4; i++) {
+                     String hyenaHab = new String(noBlankLns[indexKey]);
+
+            if (noBlankLns[0].length)
+            }*/
+//int LionIndex = ;
+//String arrayHabNames = Arrays.toString(noBlankLns.split(" ", 14));
+//int namePos = arrayHabNames.indexOf(" ");
+//String fourNames = Arrays.toString(arrayHabNames[j].substring(0,4);
+//out.print(hab);
+//out.print(newChar);
+//out.print(splitTxt);
+
+//out.println(arrayHabNames);
+//out.println(fourNames);
+// return noBlankLns;
