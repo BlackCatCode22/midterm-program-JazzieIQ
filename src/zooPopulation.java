@@ -124,7 +124,7 @@ public class zooPopulation {
         String lionHabitat = "";
         String tigerHabitat = "";
         String bearHabitat = "";
-        //String [][] names;
+        String[][] names = new String[4][4];
         //*  here's my index for names   *//
         for (j = 0; j < 4; j++) {
             hab = id[j].replace("Names", "Habitat");
@@ -144,29 +144,32 @@ public class zooPopulation {
                 out.print("");
             } else if (splitTxt.startsWith("[Hyena")) {
                 hyenaHabitat = splitTxt.substring(18, 41);
-                hyenaHabitat.split(" ", 4);
-                out.print(hyenaHabitat + "\n" + "These names are for Hyena Habitat array. I have indexed them from my" +
-                        " " +
-                        "scanner." + "\n"/*
+                //hyenaHabitat.replace(",", "");
+                hyenaHabitat.split(",", 4);
+                                out.print(hyenaHabitat + "\n" + "These names are for Hyena Habitat array. I have indexed them from my" +
+                        " " + "scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
                 endKey++;
             } else if (splitTxt.startsWith("[Lion")) {
                 lionHabitat = splitTxt.substring(17, 43);
-                lionHabitat.split(" ", 4);
-                out.print(lionHabitat + "\n" + "These names are for Lion Habitat array. I have indexed them from my " +
-                        "scanner" +
-                        "." + "\n"/*
-                +indexKey + "\n" + endKey*/);
-            } else if (splitTxt.startsWith("[Bear")) {
-                tigerHabitat = splitTxt.substring(17, 48);
-                tigerHabitat.split(" ", 4);
-                out.print(tigerHabitat + "\n" + "These names are for Bear Habitat array. I have indexed them from my " +
+                //lionHabitat.replace(",", "");
+                lionHabitat.split(",", 4);
+                                out.print(lionHabitat + "\n" + "These names are for Lion Habitat array. I have indexed them from my " +
                         "scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
             } else if (splitTxt.startsWith("[Tiger")) {
-                bearHabitat = splitTxt.substring(18, 46);
-                bearHabitat.split(" ", 4);
-                out.print(bearHabitat + "\n" + "These names are for Tiger Habitat array. I have indexed them from my" +
+                tigerHabitat = splitTxt.substring(18, 46);
+                //tigerHabitat.replace(",", "");
+                tigerHabitat.split(",", 4);
+                out.print(tigerHabitat + "\n" + "These names are for Tiger Habitat array. I have indexed them from my" +
+                        " " +
+                        "scanner." + "\n"/*
+                +indexKey + "\n" + endKey*/);
+            } else if (splitTxt.startsWith("[Bear")) {
+                bearHabitat = splitTxt.substring(17, 48);
+                //bearHabitat.replace(",", "");
+                bearHabitat.split(",", 4);
+                out.print(bearHabitat + "\n" + "These names are for Bear Habitat array. I have indexed them from my" +
                         " scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
             } else {
@@ -181,23 +184,23 @@ public class zooPopulation {
         if (hyenaHabitat == null){
             names = new String[j][j];{new String(hyenaHabitat + lionHabitat + tigerHabitat + bearHabitat)};
         }
-            out.print(names);
+         out.print(names);
          */
-       for (int i = 0; i < 16; i++) {
+            for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
             String[] splitStrComma = animals[i].split(",", 0);
-      /*
-        for (String a: splitAnimals) {
-            out.println("\n\n");
+        /*for (String a: splitAnimals) {
+            out.println( a + "\n\n");}
             for (String s: splitStrComma) {
             System.out.println(s);
             }
-        }*/
+            */
+
             String yearsOld = splitAnimals[0];
-            species = splitAnimals[4];
+            species = splitStrComma[0].split(" ")[4];
             //out.print (species);
-            int position = species.indexOf(",");
-            species = species.substring(0, position);
+            //int position = species.indexOf(",");
+            //species = species.substring(0, position);
             out.println("species is: " + species);
             //System.out.println("position of comma is: " + position);
             String birthdate = calcBirth(Integer.parseInt(splitAnimals[0]), splitAnimals[7]);
@@ -215,28 +218,33 @@ public class zooPopulation {
                 case "hyena" -> {
                     numOfHyenas++;
                     uniqueID = genUniqueID(species, numOfHyenas);
-                    out.println(uniqueID + ": " + hyenaHabitat.split(" ")[numOfHyenas-1]);
+                    out.println(uniqueID + ": " + hyenaHabitat.split(", ")[numOfHyenas-1]);
                 }
                 case "lion" -> {
                     numOfLions++;
                     uniqueID = genUniqueID(species, numOfLions);
-                    out.println("uniqueID = " + uniqueID);
-                    out.println(uniqueID + ": " + lionHabitat.split(" ")[numOfLions-1]);
+                    out.println(uniqueID + ": " + lionHabitat.split(", ")[numOfLions-1]);
                 }
                 case "tiger" -> {
                     numOfTigers++;
                     uniqueID = genUniqueID(species, numOfTigers);
-                    out.println("uniqueID = " + uniqueID);
-                    out.println(uniqueID + ": " + tigerHabitat.split(" ")[numOfTigers-1]);
+                    out.println(uniqueID + ": " + tigerHabitat.split(", ")[numOfTigers-1]);
                 }
                 case "bear" -> {
                     numOfBears++;
                     uniqueID = genUniqueID(species, numOfBears);
-                    out.println("uniqueID = " + uniqueID);
-                    out.println(uniqueID + ": " + bearHabitat.split(" ")[numOfBears-1]);
+                    out.println(uniqueID + ": " + bearHabitat.split(", ")[numOfBears-1]);
                 }
                 default -> out.println("Error tabulating number of species");
             }
+            String[] habitatNames = {hyenaHabitat, lionHabitat, tigerHabitat, bearHabitat};
+            //out.print(habitatNames[j]);
+            for (int f=0; f<4; f++) {
+                for (int n=0; n<4; n++){
+                    names[f][n] = habitatNames[f].split("")[n];
+                    //out.print(names [i][j]);
+                }
+           }
             out.println("\n");
         }
         out.println("numOfHyenas = " + numOfHyenas);
