@@ -131,35 +131,39 @@ public class zooPopulation {
             endKey = noBlankLns.indexOf("]");
             /*out.print("\n" + "These are for Habitat arrays by indexing them from my scanner " + "\n" + indexKey + "\n" + endKey);
             }*/
-            for (int i = 0; i < 7; i++) {
-                if (endKey == -1) {
+            //for (int i = 0; i < 7; i++) {
+                if (indexKey == -1) {
                     out.print("\n");
-                } else if (endKey == 94) {
+                }
+                else if (endKey == 94) {
                     hyenaHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
                     out.print("\n" + "These are for Hyena Habitat arrays. I have indexed them from my scanner." + "\n"/*
                     +indexKey + "\n" + endKey*/);
+                    //return;
                 }
                 else if (endKey == 85) {
                     lionHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
                     out.print("\n" + "These are for Lion Habitat arrays. I have indexed them from my scanner." + "\n"/*
                     +indexKey + "\n" + endKey*/);
+                    //return;
                     }
                 else if (endKey == 96) {
                     tigerHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
                     out.print("\n" + "These are for Bear Habitat arrays. I have indexed them from my scanner." + "\n"/*
                     +indexKey + "\n" + endKey*/);
-                    return;
+                    //return;
                     }
                 else if (endKey == 82) {
                     bearHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
                     out.print("\n" + "These are for Tiger Habitat arrays.arrays. I have indexed them from my scanner." + "\n"/*
                     +indexKey + "\n" + endKey*/);
-                    return;
+                    //return;
                     }
+                else if (endKey == -1) {
+                    out.print("\n");
+                    return;
                 }
-            }
-        //String newId = Arrays.toString(new String[]{noBlankLns});
-        //out.print(newId);
+                }
         System.out.print("\n");
         for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
