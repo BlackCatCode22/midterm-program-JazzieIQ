@@ -70,10 +70,11 @@ public class zooPopulation {
             File animalId = new File(animalsNames);
             Scanner scanner = new Scanner(animalId);
             while (scanner.hasNextLine()) {
+                scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
                 String line = scanner.nextLine();
                 id[idLine] = line;
                 idLine++;
-                //out.println(line);
+                out.println(line);
             }
             scanner.close();
         } catch (FileNotFoundException e) {
@@ -120,11 +121,10 @@ public class zooPopulation {
         String newChar;
         String splitTxt;
         String noBlankLns;
-        String[] hyenaHabitat;
-        String[] lionHabitat;
-        String[] tigerHabitat;
-        String[] bearHabitat;
-
+        String hyenaHabitat;
+        String lionHabitat;
+        String tigerHabitat;
+        String bearHabitat;
         for (j = 0; j < 7; j++) {
             hab = id[j].replace("Names", "Habitat");
             newChar = hab.replace(",", "");
@@ -140,32 +140,38 @@ public class zooPopulation {
             out.print("\n" + "These are for Habitat arrays by indexing them from my scanner " + "\n" + indexKey + "\n" + endKey);
             }*/
             if (indexKey == -1) {
-                out.print("\n");
-            } else if (endKey == 94) {
-                hyenaHabitat = new String[]{noBlankLns.substring(18, 41)};
+                out.println(noBlankLns.replaceAll("\n",null));
+            }
+            else if (endKey == 94) {
+                hyenaHabitat = noBlankLns.substring(18, 41);
                 out.print(hyenaHabitat + "\n" + "These are for Hyena Habitat array. I have indexed them from my " +
                         "scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
-            } else if (endKey == 85) {
-                lionHabitat = new String[]{noBlankLns.substring(16, 40)};
+            }
+            else if (endKey == 85) {
+                lionHabitat = noBlankLns.substring(16, 40);
                 out.print(lionHabitat + "\n" + "These are for Lion Habitat array. I have indexed them from my scanner" +
                         "." + "\n"/*
                 +indexKey + "\n" + endKey*/);
-            } else if (endKey == 96) {
-                tigerHabitat = new String[]{noBlankLns.substring(17, 46)};
+            }
+            else if (endKey == 96) {
+                tigerHabitat = noBlankLns.substring(17, 46);
                 out.print(tigerHabitat + "\n" + "These are for Bear Habitat array. I have indexed them from my " +
                         "scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
-            } else if (endKey == 82) {
-                bearHabitat = new String[]{noBlankLns.substring(18, 45)};
+            }
+            else if (endKey == 82) {
+                bearHabitat = noBlankLns.substring(18, 45);
                 out.print(bearHabitat + "\n" + "These are for Tiger Habitat array.arrays. I have indexed them from my" +
                         " scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
-            } else if (endKey == -1) {
+            }
+            else if (endKey == -1) {
                 out.print("\n");
                 return;
             }
         }
+        */
         out.print("\n");
         for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
@@ -219,7 +225,7 @@ public class zooPopulation {
                 default -> out.println("Error tabulating number of species");
             }
             out.println("\n");
-         }
+        }
         out.println("numOfHyenas = " + numOfHyenas);
         out.println("numOfLions = " + numOfLions);
         out.println("numOfTigers = " + numOfTigers);
