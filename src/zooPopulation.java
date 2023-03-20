@@ -6,7 +6,7 @@ import static java.lang.System.*;
 public class zooPopulation {
     static String calcBirth(int yearOld, String birthSeason) {
         int year = 2023 - yearOld;
-        //java.lang.String birthSeason = "01-01";
+        birthSeason = "01-01";
         java.lang.String monthDay = switch (birthSeason) {
             case "spring," -> "03-19";
             case "summer," -> "5-21";
@@ -14,8 +14,7 @@ public class zooPopulation {
             case "winter," -> "12-19";
             default -> birthSeason;
         };
-        String newDate = (year + "-" + monthDay);
-        return newDate;
+        return (year + "-" + monthDay);
     }
 
     static String genUniqueID(String speciesName, int numOfSpecies) {
@@ -104,6 +103,9 @@ public class zooPopulation {
         int numOfTigers = 0;
         int numOfBears = 0;
         int years = 0;
+        int j;
+        int indexKey;
+        int endKey;
         String season;
         String sex;
         String species;
@@ -114,63 +116,62 @@ public class zooPopulation {
         String uniqueID = "xyz";
         String arrived;
         out.println("FYI the following String took 1 week out of my life...#justsayin'" + "\n");
-        String noBlankLns = null;
-        String[] hyenaHabitat = null;
-        String[] lionHabitat = null;
-        String[] tigerHabitat = null;
-        String[] bearHabitat = null;
-        int indexKey = 0;
-        int endKey = 0;
-        for (int j = 0; j < 7; j++) {
-            String hab = id[j].replace("Names", "Habitat");
-            String newChar = hab.replace(",", "");
-            String splitTxt = Arrays.toString(newChar.split(" ", j));
-            noBlankLns = new String(splitTxt.replace("[]", ""));
-            out.print(noBlankLns);
+        String hab;
+        String newChar;
+        String splitTxt;
+        String noBlankLns;
+        String hyenaHabitat;
+        String lionHabitat;
+        String tigerHabitat;
+        String bearHabitat;
+
+        for (j = 0; j < 7; j++) {
+            hab = id[j].replace("Names", "Habitat");
+            newChar = hab.replace(",", "");
+            splitTxt = Arrays.toString(newChar.split(" ", j));
+            noBlankLns = splitTxt.replace("[]", "");
+            //out.print(noBlankLns);
             indexKey = noBlankLns.indexOf("[");
             endKey = noBlankLns.indexOf("]");
-            /*out.print("\n" + "These are for Habitat arrays by indexing them from my scanner " + "\n" + indexKey + "\n" + endKey);
+            out.print("\n");
+            /*int commaIndexFinder = noBlankLns.indexOf(",");
+            out.print(commaIndexFinder);
+            out.print("\n");
+            out.print("\n" + "These are for Habitat arrays by indexing them from my scanner " + "\n" + indexKey + "\n" + endKey);
             }*/
-            //for (int i = 0; i < 7; i++) {
-                if (indexKey == -1) {
-                    out.print("\n");
-                }
-                else if (endKey == 94) {
-                    hyenaHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
-                    out.print("\n" + "These are for Hyena Habitat arrays. I have indexed them from my scanner." + "\n"/*
-                    +indexKey + "\n" + endKey*/);
-                    //return;
-                }
-                else if (endKey == 85) {
-                    lionHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
-                    out.print("\n" + "These are for Lion Habitat arrays. I have indexed them from my scanner." + "\n"/*
-                    +indexKey + "\n" + endKey*/);
-                    //return;
-                    }
-                else if (endKey == 96) {
-                    tigerHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
-                    out.print("\n" + "These are for Bear Habitat arrays. I have indexed them from my scanner." + "\n"/*
-                    +indexKey + "\n" + endKey*/);
-                    //return;
-                    }
-                else if (endKey == 82) {
-                    bearHabitat = new String[]{noBlankLns.substring(indexKey, endKey)};
-                    out.print("\n" + "These are for Tiger Habitat arrays.arrays. I have indexed them from my scanner." + "\n"/*
-                    +indexKey + "\n" + endKey*/);
-                    //return;
-                    }
-                else if (endKey == -1) {
-                    out.print("\n");
-                    return;
-                }
-                }
-        System.out.print("\n");
+            if (indexKey == -1) {
+                out.print("\n");
+            } else if (endKey == 94) {
+                hyenaHabitat = noBlankLns.substring(18, 41);
+                out.print(hyenaHabitat + "\n" + "These are for Hyena Habitat array. I have indexed them from my " +
+                        "scanner." + "\n"/*
+                +indexKey + "\n" + endKey*/);
+            } else if (endKey == 85) {
+                lionHabitat = noBlankLns.substring(16, 40);
+                out.print(lionHabitat + "\n" + "These are for Lion Habitat array. I have indexed them from my scanner" +
+                        "." + "\n"/*
+                +indexKey + "\n" + endKey*/);
+            } else if (endKey == 96) {
+                tigerHabitat = noBlankLns.substring(17, 46);
+                out.print(tigerHabitat + "\n" + "These are for Bear Habitat array. I have indexed them from my " +
+                        "scanner." + "\n"/*
+                +indexKey + "\n" + endKey*/);
+            } else if (endKey == 82) {
+                bearHabitat = noBlankLns.substring(18, 45);
+                out.print(bearHabitat + "\n" + "These are for Tiger Habitat array.arrays. I have indexed them from my" +
+                        " scanner." + "\n"/*
+                +indexKey + "\n" + endKey*/);
+            } else if (endKey == -1) {
+                out.print("\n");
+                return;
+            }
+        }
+        out.print("\n");
         for (int i = 0; i < 16; i++) {
             String[] splitAnimals = animals[i].split(" ", 0);
             String[] splitStrComma = animals[i].split(",", 0);
       /*
         for (String a: splitAnimals) {
-
             out.println("\n\n");
             for (String s: splitStrComma) {
             System.out.println(s);
@@ -223,7 +224,9 @@ public class zooPopulation {
         out.println("numOfLions = " + numOfLions);
         out.println("numOfTigers = " + numOfTigers);
         out.println("numOfBears = " + numOfBears);
+// main
     }
+//zooPopulation
 }
         /*
         *the following is literally just crap that wasted my time. Take a gander*
