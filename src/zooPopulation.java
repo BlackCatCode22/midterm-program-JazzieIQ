@@ -120,10 +120,10 @@ public class zooPopulation {
         String newChar;
         String splitTxt;
         String noBlankLns;
-        String hyenaHabitat;
-        String lionHabitat;
-        String tigerHabitat;
-        String bearHabitat;
+        String[] hyenaHabitat;
+        String[] lionHabitat;
+        String[] tigerHabitat;
+        String[] bearHabitat;
 
         for (j = 0; j < 7; j++) {
             hab = id[j].replace("Names", "Habitat");
@@ -142,22 +142,22 @@ public class zooPopulation {
             if (indexKey == -1) {
                 out.print("\n");
             } else if (endKey == 94) {
-                hyenaHabitat = noBlankLns.substring(18, 41);
+                hyenaHabitat = new String[]{noBlankLns.substring(18, 41)};
                 out.print(hyenaHabitat + "\n" + "These are for Hyena Habitat array. I have indexed them from my " +
                         "scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
             } else if (endKey == 85) {
-                lionHabitat = noBlankLns.substring(16, 40);
+                lionHabitat = new String[]{noBlankLns.substring(16, 40)};
                 out.print(lionHabitat + "\n" + "These are for Lion Habitat array. I have indexed them from my scanner" +
                         "." + "\n"/*
                 +indexKey + "\n" + endKey*/);
             } else if (endKey == 96) {
-                tigerHabitat = noBlankLns.substring(17, 46);
+                tigerHabitat = new String[]{noBlankLns.substring(17, 46)};
                 out.print(tigerHabitat + "\n" + "These are for Bear Habitat array. I have indexed them from my " +
                         "scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
             } else if (endKey == 82) {
-                bearHabitat = noBlankLns.substring(18, 45);
+                bearHabitat = new String[]{noBlankLns.substring(18, 45)};
                 out.print(bearHabitat + "\n" + "These are for Tiger Habitat array.arrays. I have indexed them from my" +
                         " scanner." + "\n"/*
                 +indexKey + "\n" + endKey*/);
@@ -219,7 +219,7 @@ public class zooPopulation {
                 default -> out.println("Error tabulating number of species");
             }
             out.println("\n");
-        }
+         }
         out.println("numOfHyenas = " + numOfHyenas);
         out.println("numOfLions = " + numOfLions);
         out.println("numOfTigers = " + numOfTigers);
