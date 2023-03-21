@@ -1,7 +1,16 @@
-Hyena Habitat:
-
-Hy01; Kamari; 4 years old; birth date Mar 21, 2018; tan color; female; 70 pounds; from Friguia Park, Tunisia; arrived Sept 27, 2022
-
-Lion Habitat:
-
-Li01; Kiara; 6 years old; birth date Sept 21, 2016; tan color; female; 305 pounds; from Zanzibar, Tanzania; arrived Sept 23, 2022
+Hy01: Shenzi, 4 yearsOld
+Hy02: Banzai, 12 yearsOld
+Hy03: Ed, 4 yearsOld
+Hy04: Zig, 8 yearsOld
+Li01: Scar, 6 yearsOld
+Li02: Mufasa, 12 yearsOld
+Li03: Simba, 22 yearsOld
+Li04: Kiara, 4 yearsOld
+Ti01: Tony, 2 yearsOld
+Ti02: Tigger, 4 yearsOld
+Ti03: Amber, 18 yearsOld
+Ti04: Cosimia, 3 yearsOld
+Be01: Yogi, 7 yearsOld
+Be02: Smokey, 25 yearsOld
+Be03: Paddington, 4 yearsOld
+Be04: Lippy, 4 yearsOld
