@@ -162,10 +162,10 @@ public class zooPopulation {
             out.print("\n");
             out.print("\n" + "These are for Habitat arrays by indexing them from my scanner " + "\n" + indexKey + "\n" + endKey+ "\n");
             */
+
               if (indexKey == -1) {
                   out.print("");
               } else if (splitTxt.startsWith("[Hyena")) {
-
                   hyenaHabitat = splitTxt.substring(18, 41);
                   //hyenaHabitat.replace(",", "");
                   hyenaHabitat.split(",", 4);
@@ -174,7 +174,6 @@ public class zooPopulation {
                 +indexKey + "\n" + endKey*/);
                   endKey++;
               } else if (splitTxt.startsWith("[Lion")) {
-
                   lionHabitat = splitTxt.substring(17, 43);
                   //lionHabitat.replace(",", "");
                   lionHabitat.split(",", 4);
@@ -203,7 +202,6 @@ public class zooPopulation {
               //out.print(hyenaHabitat + lionHabitat + tigerHabitat +bearHabitat);
           }
 // end of Habitat Splitter //
-          out.print("\n");
 
           for (int i = 0; i < 16; i++) {
               String[] splitAnimals = animals[i].split(" ", 0);
@@ -215,6 +213,7 @@ public class zooPopulation {
               System.out.println(s);
               }
 */
+              out.print("\n");
               yearsOld = Integer.parseInt(splitAnimals[0]);
               //String arrived = splitStrComma[4];
               season = splitAnimals[7];
@@ -236,7 +235,7 @@ public class zooPopulation {
               switch (species) {
                   case "hyena" -> {
                       out.print("Arriving "+ arrival +"\n");
-                      output.write("Arriving " + String.valueOf(arrival) + "\n");
+                      output.write("\n" + "Arriving " + String.valueOf(arrival) + "; ");
                       numOfHyenas++;
                       uniqueID = genUniqueID(species, numOfHyenas);
                       out.println(uniqueID + ": " + hyenaHabitat.split(", ")[numOfHyenas - 1]);
@@ -244,7 +243,7 @@ public class zooPopulation {
                   }
                   case "lion" -> {
                       out.print("Intaking "+ inTaking +"\n");
-                      output.write("Intaking " + String.valueOf(inTaking) + "\n");
+                      output.write("\n" +"Intaking " + String.valueOf(inTaking) + "; ");
                       numOfLions++;
                       uniqueID = genUniqueID(species, numOfLions);
                       out.println(uniqueID + ": " + lionHabitat.split(", ")[numOfLions - 1]);
@@ -252,7 +251,7 @@ public class zooPopulation {
                   }
                   case "tiger" -> {
                       out.print("Previous quarter "+ preQuart +"\n");
-                      output.write("Previous quarter " + preQuart + "\n");
+                      output.write("\n" +"Previous quarter " + preQuart + "; ");
                       numOfTigers++;
                       uniqueID = genUniqueID(species, numOfTigers);
                       out.println(uniqueID + ": " + tigerHabitat.split(", ")[numOfTigers - 1]);
@@ -260,7 +259,7 @@ public class zooPopulation {
                   }
                   case "bear" -> {
                       out.print(tBA +"\n");
-                      output.write(tBA + preQuart + "\n");
+                      output.write("\n" + tBA + "; ");
                       numOfBears++;
                       uniqueID = genUniqueID(species, numOfBears);
                       out.println(uniqueID + ": " + bearHabitat.split(", ")[numOfBears - 1]);
@@ -268,21 +267,9 @@ public class zooPopulation {
                   }
                   default -> out.println("Error tabulating number of species");
               }
-
-
-              /*
-              names = new String[4][4]; -> (hyenaHabitat, lionHabitat, tigerHabitat, bearHabitat);
-              out.print(names[16]);
-              for (int f = 0; f < 4; f++) {
-                  for (int n = 0; n < 4; n++) {
-                      names[f][n] = habitatNames[f].split("")[n];
-                      out.print(names [i][j]);
-                  }
-              }
-                */
               out.println("\n");
 
-              output.write(", " + yearsOld + " yearsOld" +"\n");
+              output.write(", " + yearsOld + " yearsOld:" + birthdate + "," + color + ", " + sex + "," + weight + "," + origin + "\n");
           }
           out.println("numOfHyenas = " + numOfHyenas);
           out.println("numOfLions = " + numOfLions);
