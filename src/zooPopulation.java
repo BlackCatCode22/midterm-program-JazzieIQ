@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -16,20 +17,21 @@ public class zooPopulation {
         String newDate = year + "-" + monthDay;
         return newDate;
     }
-    /*
-    static String calcBirth(int yearsOld, String birthSeason) {
-        int year = 2023 - yearsOld;
-        String monthDay = switch (birthSeason) {
-            case "spring," -> "03-19";
+     /*static String Arriving (int day, int curMonth, String birthSeason) {
+        day = 20;
+        curMonth = 03;
+         LocalDate arrival = LocalDate.now();
+         LocalDate arrived = switch (birthSeason) {
+            case "spring," -> 2023-01-10;
             case "summer," -> "5-21";
             case "fall," -> "08-19";
             case "winter," -> "12-19";
-            default -> "01-01";
+            default -> arrival;
         };
         String newDate = year + "-" + monthDay;
         return newDate;
     }
-    */
+*/
     static String genUniqueID(String speciesName, int numOfSpecies) {
         return switch (speciesName) {
             case "hyena" -> "Hy0" + numOfSpecies;
@@ -39,7 +41,6 @@ public class zooPopulation {
             default -> "error";
         };
     }
-
     public static void main(String[] args) throws IOException {
         out.println("""
 
@@ -115,6 +116,7 @@ public class zooPopulation {
       try {
           FileWriter file = new FileWriter("zooPopulation.txt");
           BufferedWriter output = new BufferedWriter(file);
+          output.write("Quarterly Arrival Schedule:" + "\n\n" + "New Animals to the Following Habitats." + "\n\n");
           int yearsOld = 0;
           int numOfHyenas = 0;
           int numOfLions = 0;
@@ -131,7 +133,10 @@ public class zooPopulation {
           String origin;
           String weight;
           String uniqueID = "xyz";
-          String arrived;
+          LocalDate arrival = LocalDate.now();
+          LocalDate inTaking = arrival.minusDays(7);
+          LocalDate preQuart = arrival.minusMonths(4).minusDays(12);
+          String tBA = "To-Be-Announced";
           out.println("FYI the following String took 1 week out of my life...#justsayin'" + "\n");
           String hab;
           String newChar;
@@ -160,6 +165,7 @@ public class zooPopulation {
               if (indexKey == -1) {
                   out.print("");
               } else if (splitTxt.startsWith("[Hyena")) {
+
                   hyenaHabitat = splitTxt.substring(18, 41);
                   //hyenaHabitat.replace(",", "");
                   hyenaHabitat.split(",", 4);
@@ -168,6 +174,7 @@ public class zooPopulation {
                 +indexKey + "\n" + endKey*/);
                   endKey++;
               } else if (splitTxt.startsWith("[Lion")) {
+
                   lionHabitat = splitTxt.substring(17, 43);
                   //lionHabitat.replace(",", "");
                   lionHabitat.split(",", 4);
@@ -209,14 +216,13 @@ public class zooPopulation {
               }
 */
               yearsOld = Integer.parseInt(splitAnimals[0]);
-              arrived = splitStrComma[4];
+              //String arrived = splitStrComma[4];
               season = splitAnimals[7];
               species = splitStrComma[0].split(" ")[4];
               //out.print (splitAnimals[7]);
               out.println("species is: " + species);
               //System.out.println("position of comma is: " + position);
               birthdate = calcBirth(yearsOld, season);
-              System.out.println("birthDate is: " + birthdate);
               out.println("birthDate is: " + birthdate);
               out.println(yearsOld + " years old");
               sex = splitAnimals[3];
@@ -229,24 +235,32 @@ public class zooPopulation {
               out.println("origin ; " + origin);
               switch (species) {
                   case "hyena" -> {
+                      out.print("Arriving "+ arrival +"\n");
+                      output.write("Arriving " + String.valueOf(arrival) + "\n");
                       numOfHyenas++;
                       uniqueID = genUniqueID(species, numOfHyenas);
                       out.println(uniqueID + ": " + hyenaHabitat.split(", ")[numOfHyenas - 1]);
                       output.write(uniqueID + ": " + hyenaHabitat.split(", ")[numOfHyenas - 1]);
                   }
                   case "lion" -> {
+                      out.print("Intaking "+ inTaking +"\n");
+                      output.write("Intaking " + String.valueOf(inTaking) + "\n");
                       numOfLions++;
                       uniqueID = genUniqueID(species, numOfLions);
                       out.println(uniqueID + ": " + lionHabitat.split(", ")[numOfLions - 1]);
                       output.write(uniqueID + ": " + lionHabitat.split(", ")[numOfLions - 1]);
                   }
                   case "tiger" -> {
+                      out.print("Previous quarter "+ preQuart +"\n");
+                      output.write("Previous quarter " + preQuart + "\n");
                       numOfTigers++;
                       uniqueID = genUniqueID(species, numOfTigers);
                       out.println(uniqueID + ": " + tigerHabitat.split(", ")[numOfTigers - 1]);
                       output.write(uniqueID + ": " + tigerHabitat.split(", ")[numOfTigers - 1]);
                   }
                   case "bear" -> {
+                      out.print(tBA +"\n");
+                      output.write(tBA + preQuart + "\n");
                       numOfBears++;
                       uniqueID = genUniqueID(species, numOfBears);
                       out.println(uniqueID + ": " + bearHabitat.split(", ")[numOfBears - 1]);
