@@ -6,17 +6,30 @@ import static java.lang.System.*;
 public class zooPopulation {
     static String calcBirth(int yearOld, String birthSeason) {
         int year = 2023 - yearOld;
-        birthSeason = "01-01";
-        java.lang.String monthDay = switch (birthSeason) {
+        String monthDay = switch (birthSeason) {
             case "spring," -> "03-19";
             case "summer," -> "5-21";
             case "fall," -> "08-19";
             case "winter," -> "12-19";
-            default -> birthSeason;
+            default -> "01-01";
         };
-        return (year + "-" + monthDay);
+        String newDate = year + "-" + monthDay;
+        return newDate;
     }
-
+    /*
+    static String calcBirth(int yearsOld, String birthSeason) {
+        int year = 2023 - yearsOld;
+        String monthDay = switch (birthSeason) {
+            case "spring," -> "03-19";
+            case "summer," -> "5-21";
+            case "fall," -> "08-19";
+            case "winter," -> "12-19";
+            default -> "01-01";
+        };
+        String newDate = year + "-" + monthDay;
+        return newDate;
+    }
+    */
     static String genUniqueID(String speciesName, int numOfSpecies) {
         return switch (speciesName) {
             case "hyena" -> "Hy0" + numOfSpecies;
@@ -98,22 +111,19 @@ public class zooPopulation {
             e.printStackTrace();
         }
         out.println("\nLet's begin!\n");
-//    bufferered writer
+//    Buffered Writer
       try {
           FileWriter file = new FileWriter("zooPopulation.txt");
           BufferedWriter output = new BufferedWriter(file);
-
-//Hy01; Kamari; 4 years old; birth date Mar 21, 2018; tan color; female; 70 pounds; from Friguia Park, Tunisia;
-// arrived Sept 27, 2022
-          int years = 0;
+          int yearsOld = 0;
           int numOfHyenas = 0;
           int numOfLions = 0;
           int numOfTigers = 0;
           int numOfBears = 0;
-          String yearsOld ="";
           int j;
           int indexKey;
           int endKey;
+          String birthdate;
           String season;
           String sex;
           String species;
@@ -198,14 +208,17 @@ public class zooPopulation {
               System.out.println(s);
               }
 */
-              yearsOld = splitAnimals[0];
+              yearsOld = Integer.parseInt(splitAnimals[0]);
+              arrived = splitStrComma[4];
+              season = splitAnimals[7];
               species = splitStrComma[0].split(" ")[4];
-              //out.print (species);
+              //out.print (splitAnimals[7]);
               out.println("species is: " + species);
               //System.out.println("position of comma is: " + position);
-              String birthdate = calcBirth(Integer.parseInt(splitAnimals[0]), splitAnimals[7]);
+              birthdate = calcBirth(yearsOld, season);
+              System.out.println("birthDate is: " + birthdate);
               out.println("birthDate is: " + birthdate);
-              out.println(yearsOld + " yearsOld");
+              out.println(yearsOld + " years old");
               sex = splitAnimals[3];
               out.println("sex is: " + sex);
               color = splitStrComma[2];
